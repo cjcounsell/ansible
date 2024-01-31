@@ -1,0 +1,33 @@
+- name: Install ZSH
+  apt: name=zsh
+  tags: &tags_for_zsh_tasks [ 'install', 'productivity', 'dotfiles', 'zsh' ]
+
+- name: Change shell to zsh
+  shell: chsh -s $(which zsh)
+  tags: *tags_for_zsh_tasks
+
+- name: Oh-My-Zsh
+  shell: curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh
+  args:
+    creates: "{{ ansible_env.HOME }}/.oh-my-zsh"
+  tags: *tags_for_zsh_tasks
+
+- name: Install Powerlevel10k theme
+  git:
+    repo: 'https://github.com/romkatv/powerlevel10k.git'
+    dest: '~/.oh-my-zsh/custom/themes/powerlevel10k'
+    depth: 1
+  tags: *tags_for_zsh_tasks
+
+# - name: Install zsh-autosuggestions
+#   git:
+#     repo: 'https://github.com/zsh-users/zsh-autosuggestions.git'
+#     dest: '~/.oh-my-zsh/custom/plugins/zsh-autosuggestions'
+#   tags: *tags_for_zsh_tasks
+#
+# - name: Update zshrc
+#   replace: 
+#     path: $HOME/.zshrc
+#     regexp: '^plugins=\('
+#     replace: 'plugins=(zsh-autosuggestions '
+#   tags: *tags_for_zsh_tasks

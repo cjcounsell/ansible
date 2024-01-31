@@ -1,0 +1,21 @@
+- name: Install nodejs and npm
+  become: true
+  apt:
+    name: ['nodejs', 'npm']
+  tags:
+    - install
+    - node
+
+- name: Install N
+  npm:
+    name: n
+    global: yes
+  tags:
+    - install
+    - node
+
+- name: Install node 18
+  shell: n 18
+  tags:
+    - install
+    - node
