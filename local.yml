@@ -26,3 +26,6 @@
     - name: Include Dotfiles Setup
       include_tasks:
         file: tasks/dotfiles.yml
+    - name: Include Productivity
+      include_tasks:
+        file: tasks/productivity.yml
