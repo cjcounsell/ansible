@@ -1,5 +1,6 @@
 - name: Install nodejs and npm
-  become: true
+  become: "{{ use_sudo }}"
+  become_method: sudo
   apt:
     name: ['nodejs', 'npm']
   tags:
@@ -7,6 +8,8 @@
     - node
 
 - name: Install N
+  become: "{{ use_sudo }}"
+  become_method: sudo
   npm:
     name: n
     global: yes
@@ -15,6 +18,8 @@
     - node
 
 - name: Install node 18
+  become: "{{ use_sudo }}"
+  become_method: sudo
   shell: n 18
   tags:
     - install

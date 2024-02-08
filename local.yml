@@ -3,9 +3,11 @@
     source_key: "./.ssh/id_ed25519"
     dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
     personal: "{{ lookup('env', 'HOME') }}/personal"
+    use_sudo: "{{ lookup('env', 'USER') != '' }}"
   pre_tasks:
     - name: Update Apt
-      become: true
+      become: "{{ use_sudo }}"
+      become_method: sudo
       apt:
         force_apt_get: true
         update_cache: true

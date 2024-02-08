@@ -1,4 +1,6 @@
 - name: Installing stow
+  become: "{{ use_sudo }}"
+  become_method: sudo
   apt: name=stow
   tags:
     - install
