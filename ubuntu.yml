@@ -18,16 +18,16 @@
   tasks:
     - name: Include Ssh Setup
       include_tasks: 
-        file: tasks/ssh.yml
+        file: tasks/ubuntu/ssh.yml
     - name: Include Zsh Setup
       include_tasks: 
-        file: tasks/zsh-setup.yml
+        file: tasks/ubuntu/zsh-setup.yml
     - name: Include Node Setup
       include_tasks: 
-        file: tasks/node-setup.yml
+        file: tasks/ubuntu/node-setup.yml
     - name: Include Dotfiles Setup
       include_tasks:
-        file: tasks/dotfiles.yml
+        file: tasks/ubuntu/dotfiles.yml
     - name: Include Productivity
       include_tasks:
-        file: tasks/productivity.yml
+        file: tasks/ubuntu/productivity.yml
