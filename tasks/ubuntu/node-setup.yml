@@ -5,3 +5,11 @@
   tags: 
     - install
     - node
+
+- name: Install bun
+  shell: curl -fsSL https://bun.sh/install | bash
+  args:
+    creates: "{{ ansible_env.HOME }}/.bun"
+  tags: 
+    - install
+    - bun
