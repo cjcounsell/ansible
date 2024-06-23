@@ -34,3 +34,13 @@
   tags:
     - install
     - productivity
+
+- name: Install TMUX Plugin Manager
+  shell: |
+    git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+    $HOME/.tmux/plugins/tpm/tpm
+  args:
+    creates: "{{ ansible_env.HOME }}/.tmux/plugins/tpm"
+  tags:
+    - install
+    - productivity
