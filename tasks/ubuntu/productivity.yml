@@ -11,3 +11,26 @@
     - install
     - productivity
 
+- name: Add neovim ppa
+  become: "{{ use_sudo }}"
+  become_method: sudo
+  apt_repository: repo="ppa:neovim-ppa/unstable" state=present
+  tags:
+    - install
+    - productivity
+
+- name: Install neovim from ppa
+  become: "{{ use_sudo }}"
+  become_method: sudo
+  apt: name="neovim" state=present
+  tags:
+    - install
+    - productivity
+
+- name: Install fzf
+  become: "{{ use_sudo }}"
+  become_method: sudo
+  apt: name="fzf"
+  tags:
+    - install
+    - productivity
