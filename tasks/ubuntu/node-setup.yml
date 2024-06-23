@@ -1,26 +1,7 @@
-- name: Install nodejs and npm
-  become: "{{ use_sudo }}"
-  become_method: sudo
-  apt:
-    name: ['nodejs', 'npm']
-  tags:
-    - install
-    - node
-
-- name: Install N
-  become: "{{ use_sudo }}"
-  become_method: sudo
-  npm:
-    name: n
-    global: yes
-  tags:
-    - install
-    - node
-
-- name: Install node 18
-  become: "{{ use_sudo }}"
-  become_method: sudo
-  shell: n 18
-  tags:
+- name: Install nvm
+  shell: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+  args:
+    creates: "{{ ansible_env.HOME }}/.config/nvm/nvm.sh"
+  tags: 
     - install
     - node
