@@ -16,17 +16,16 @@
     creates: "{{ ansible_env.HOME }}/.oh-my-zsh"
   tags: *tags_for_zsh_tasks
 
-- name: Install Powerlevel10k theme
-  git:
-    repo: 'https://github.com/romkatv/powerlevel10k.git'
-    dest: '~/.oh-my-zsh/custom/themes/powerlevel10k'
-    depth: 1
-  tags: *tags_for_zsh_tasks
-
 - name: Install zsh-autosuggestions
   git:
     repo: 'https://github.com/zsh-users/zsh-autosuggestions.git'
     dest: '~/.oh-my-zsh/custom/plugins/zsh-autosuggestions'
+  tags: *tags_for_zsh_tasks
+
+- name: Install Starship
+  become: "{{ use_sudo }}"
+  become_method: sudo
+  shell: curl -sS https://starship.rs/install.sh | sh -s -- -y
   tags: *tags_for_zsh_tasks
 
 # - name: Update zshrc
