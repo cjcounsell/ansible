@@ -6,6 +6,18 @@
     curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
     tar xf lazygit.tar.gz lazygit
     install lazygit /usr/local/bin
+  args:
+    creates: "/usr/local/bin/lazygit"
+  tags:
+    - git
+    - install
+    - productivity
+
+- name: Remove LazyGit tar
+  become: "{{ use_sudo }}"
+  become_method: sudo
+  shell: |
+    rm -rf lazygit.tar.gz lazygit
   tags:
     - git
     - install
