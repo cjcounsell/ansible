@@ -19,12 +19,18 @@
     - name: Include Ssh Setup
       include_tasks: 
         file: tasks/ubuntu/ssh.yml
+    - name: Include Core Setup
+      include_tasks: 
+        file: tasks/ubuntu/core-setup.yml
     - name: Include Zsh Setup
       include_tasks: 
         file: tasks/ubuntu/zsh-setup.yml
     - name: Include Node Setup
       include_tasks: 
         file: tasks/ubuntu/node-setup.yml
+    - name: Include Personal Projects Setup
+      include_tasks: 
+        file: tasks/ubuntu/personal-projects.yml
     - name: Include Dotfiles Setup
       include_tasks:
         file: tasks/ubuntu/dotfiles.yml

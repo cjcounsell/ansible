@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
 sudo apt update
-sudo apt install software-properties-common git ansible curl zip unzip fd-find ripgrep
-ansible-playbook ./ubuntu.yml -JK
+sudo apt install software-properties-common
+sudo apt-add-repository --yes --update ppa:ansible/ansible
+sudo apt install ansible

@@ -1,0 +1,43 @@
+- name: josh.expressway.church exists
+  stat:
+    path: "{{ personal }}/josh.expressway.church"
+  register: josh
+  tags:
+    - install
+    - dotfiles
+    - neovim
+    - personal-project
+
+- name: Personal Project josh.expressway.church
+  ansible.builtin.git:
+    repo: 'git@github.com:cjcounsell/josh.expressway.church.git'
+    bare: true
+    dest: "{{ personal }}/josh.expressway.church"
+  tags:
+    - install
+    - dotfiles
+    - neovim
+    - personal-project
+  when: josh.stat.exists == False
+
+- name: docs.expressway.church exists
+  stat:
+    path: "{{ personal }}/docs.expressway.church"
+  register: docs
+  tags:
+    - install
+    - dotfiles
+    - neovim
+    - personal-project
+
+- name: Personal Project docs.expressway.church
+  ansible.builtin.git:
+    repo: 'git@github.com:cjcounsell/docs.expressway.church.git'
+    bare: true
+    dest: "{{ personal }}/docs.expressway.church"
+  tags:
+    - install
+    - dotfiles
+    - neovim
+    - personal-project
+  when: docs.stat.exists == False

@@ -1,0 +1,19 @@
+- name: Install System Packages 1 (build-essential, cmake)
+  become: "{{ use_sudo }}"
+  become_method: sudo
+  apt:
+    name: ["build-essential", "cmake"]
+  tags:
+    - install
+    - neovim
+    - core
+
+- name: Install System Packages 2 (the rest)
+  become: "{{ use_sudo }}"
+  become_method: sudo
+  apt:
+    name: [ "zip", "unzip", "fzf", "fd-find", "curl", "ripgrep"]
+  tags:
+    - install
+    - neovim
+    - core

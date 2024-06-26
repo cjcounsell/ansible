@@ -23,6 +23,15 @@
     - install
     - productivity
 
+- name: Install LazyDocker
+  shell: curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
+  args:
+    creates: "{{ ansible_env.HOME }}/.local/bin/lazydocker"
+  tags:
+    - install
+    - productivity
+    - docker
+
 - name: Add neovim ppa
   become: "{{ use_sudo }}"
   become_method: sudo
@@ -39,10 +48,11 @@
     - install
     - productivity
 
-- name: Install fzf
+- name: Install packages
   become: "{{ use_sudo }}"
   become_method: sudo
-  apt: name="fzf"
+  apt: 
+    name: ["fzf", "tmux", "ripgrep", "fd-find", "ani-cli"]
   tags:
     - install
     - productivity
