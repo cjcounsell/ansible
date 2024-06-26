@@ -11,7 +11,6 @@
 - name: Personal Project josh.expressway.church
   ansible.builtin.git:
     repo: 'git@github.com:cjcounsell/josh.expressway.church.git'
-    bare: true
     dest: "{{ personal }}/josh.expressway.church"
   tags:
     - install
@@ -33,7 +32,6 @@
 - name: Personal Project docs.expressway.church
   ansible.builtin.git:
     repo: 'git@github.com:cjcounsell/docs.expressway.church.git'
-    bare: true
     dest: "{{ personal }}/docs.expressway.church"
   tags:
     - install
