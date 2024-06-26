@@ -28,12 +28,12 @@
     - name: Include Node Setup
       include_tasks: 
         file: tasks/ubuntu/node-setup.yml
-    - name: Include Personal Projects Setup
-      include_tasks: 
-        file: tasks/ubuntu/personal-projects.yml
     - name: Include Dotfiles Setup
       include_tasks:
         file: tasks/ubuntu/dotfiles.yml
+    - name: Include Personal Projects Setup
+      include_tasks:
+        file: tasks/ubuntu/personal-projects.yml
     - name: Include Productivity
       include_tasks:
         file: tasks/ubuntu/productivity.yml
