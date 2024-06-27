@@ -12,7 +12,7 @@
   become: "{{ use_sudo }}"
   become_method: sudo
   apt:
-    name: [ "zip", "unzip", "fzf", "fd-find", "curl", "ripgrep"]
+    name: [ "zip", "unzip", "fzf", "fd-find", "curl", "ripgrep", "eza", "bat"]
   tags:
     - install
     - neovim
