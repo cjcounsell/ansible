@@ -52,7 +52,7 @@
   become: "{{ use_sudo }}"
   become_method: sudo
   apt: 
-    name: ["fzf", "tmux", "ripgrep", "fd-find", "ani-cli"]
+    name: ["fzf", "tmux", "ripgrep", "fd-find", "ani-cli", "jq", "httpie"]
   tags:
     - install
     - productivity
