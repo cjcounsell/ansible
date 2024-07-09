@@ -32,18 +32,24 @@
     - productivity
     - docker
 
-- name: Add neovim ppa
+- name: Install neovim
   become: "{{ use_sudo }}"
   become_method: sudo
-  apt_repository: repo="ppa:neovim-ppa/unstable" state=present
+  shell: |
+    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+    sudo rm -rf /opt/nvim
+    sudo tar -C /opt -xzf nvim-linux64.tar.gz
+  args:
+    creates: "/opt/nvim-linux64"
   tags:
     - install
     - productivity
 
-- name: Install neovim from ppa
+- name: Remove Neovim tar
   become: "{{ use_sudo }}"
   become_method: sudo
-  apt: name="neovim" state=present
+  shell: |
+    rm -rf nvim-linux64.tar.gz
   tags:
     - install
     - productivity
