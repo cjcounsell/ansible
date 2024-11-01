@@ -37,3 +37,6 @@
     - name: Include Productivity
       include_tasks:
         file: tasks/ubuntu/productivity.yml
+    - name: Include Golang Setup
+      include_tasks:
+        file: tasks/ubuntu/go-setup.yml
