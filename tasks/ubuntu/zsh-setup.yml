@@ -10,6 +10,12 @@
   shell: chsh -s $(which zsh)
   tags: *tags_for_zsh_tasks
 
+- name: Oh-My-Zsh
+  shell: curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh
+  args:
+    creates: "{{ ansible_env.HOME }}/.oh-my-zsh"
+  tags: *tags_for_zsh_tasks
+
 - name: Install zsh-autosuggestions
   git:
     repo: 'https://github.com/zsh-users/zsh-autosuggestions.git'
