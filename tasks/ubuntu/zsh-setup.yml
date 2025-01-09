@@ -16,6 +16,12 @@
     creates: "{{ ansible_env.HOME }}/.oh-my-zsh"
   tags: *tags_for_zsh_tasks
 
+- name: Zoxide
+  shell: curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+  args:
+    creates: "{{ ansible_env.HOME }}/.local/bin/zoxide"
+  tags: *tags_for_zsh_tasks
+
 - name: Install zsh-autosuggestions
   git:
     repo: 'https://github.com/zsh-users/zsh-autosuggestions.git'
